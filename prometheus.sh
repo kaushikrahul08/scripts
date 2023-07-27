@@ -1,7 +1,8 @@
 #!/bin/bash
+
+exec > prometheusinstallation.log 2>&1
 uptime
 date
-df -h
 #check internet is working or not
 curl google.com
 
@@ -35,6 +36,7 @@ cp prometheus.yml /etc/prometheus/
 cp prometheus /usr/local/bin
 cp promtool /usr/local/bin
 
+#optional step , 
 firewall-cmd --add-port=9090/tcp --permanent
 firewall-cmd --reload
 
