@@ -47,4 +47,4 @@ cp -pr root/prometheus.service /etc/systemd/system/prometheus.service
 sudo systemctl daemon-reload
 sudo systemctl start prometheus
 sudo systemctl status prometheus
-exit
+exit 0
