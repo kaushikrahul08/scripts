@@ -42,5 +42,9 @@ firewall-cmd --reload
 
 #copy prometheus executables to prom folder 
 cp -pr root/prometheus.service /etc/systemd/system/prometheus.service
-systemctl start prometheus
-systemctl status prometheus
+
+#starting prometheus
+sudo systemctl daemon-reload
+sudo systemctl start prometheus
+sudo systemctl status prometheus
+exit
