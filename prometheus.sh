@@ -1,6 +1,7 @@
 #!/bin/bash
 uptime
 date
+df -h
 #check internet is working or not
 curl google.com
 
@@ -26,19 +27,17 @@ if [[ ! -f prometheus-2.20.0.linux-amd64.tar.gz ]] ; then
     echo 'File "prometheus tar file not downloaded" is not there, aborting.'
     exit
 fi
-#untaring and unziping  the file
+#unziping  the file
 tar -zxvf prometheus-2.20.0.linux-amd64.tar.gz
 
 cd /tmp/prometheus-2.20.0.linux-amd64/
-
+cp prometheus.yml /etc/prometheus/
 cp prometheus /usr/local/bin
 cp promtool /usr/local/bin
 
-#Optional  if port 9090 is not open 
 firewall-cmd --add-port=9090/tcp --permanent
 firewall-cmd --reload
 
 cp -pr root/prometheus.service /etc/systemd/system/prometheus.service
-cp -pr root/prometheus.yml /etc/prometheus/
 systemctl start prometheus
 systemctl status prometheus
