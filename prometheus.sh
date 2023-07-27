@@ -40,6 +40,7 @@ cp promtool /usr/local/bin
 firewall-cmd --add-port=9090/tcp --permanent
 firewall-cmd --reload
 
+#copy prometheus executables to prom folder 
 cp -pr root/prometheus.service /etc/systemd/system/prometheus.service
 systemctl start prometheus
 systemctl status prometheus
