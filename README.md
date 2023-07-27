@@ -1,5 +1,7 @@
-# scripts_for_edj 
+### script 1
 
-For prometheus 
+## For prometheus 
 download both files prometheus.sh and prometheus.service and execute prometheus.sh
-#sh prometheus.sh
+# #sh prometheus.sh
+
+### script 2 
