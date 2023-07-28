@@ -34,6 +34,7 @@ fi
 #unziping  the file
 tar -zxvf prometheus-2.20.0.linux-amd64.tar.gz
 
+#copy prometheus executables to prom folder 
 sudo cd /tmp/prometheus-2.20.0.linux-amd64/
 sudo cp /tmp/prometheus-2.20.0.linux-amd64/prometheus.yml /etc/prometheus/
 sudo cp /tmp/prometheus-2.20.0.linux-amd64/prometheus /usr/local/bin
@@ -43,8 +44,8 @@ sudo cp /tmp/prometheus-2.20.0.linux-amd64/promtool /usr/local/bin
 sudo firewall-cmd --add-port=9090/tcp --permanent
 sudo firewall-cmd --reload
 
-#copy prometheus executables to prom folder 
-sudo cp -pr /home/$USER/prometheus.service /etc/systemd/system/prometheus.service
+#copy prometheus linux service file
+sudo cp -pr /tmp/prometheus.service /etc/systemd/system/prometheus.service
 
 #starting prometheus
 sudo systemctl daemon-reload
